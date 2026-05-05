@@ -1,0 +1,89 @@
+---
+import Base from '@/layouts/Base.astro';
+import TimelineItem from '@/components/TimelineItem.astro';
+import { roles, education, awards } from '@/data/experience';
+---
+
+<Base
+  title="Experience — Ahmed Dawod"
+  description="Career history: BenchSci, MarketMuse, AOA Dx, PayMob, Mansoura University. Education: Purdue M.S. (Fulbright), Mansoura University."
+>
+  <!-- Page hero -->
+  <section class="bg-gradient-to-br from-slate-50 to-accent-50/30 dark:from-slate-900 dark:to-slate-900 pt-20 pb-16 px-4 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="font-mono text-accent-600 dark:text-accent-400 text-sm mb-3">Background</p>
+        <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white mb-5">
+          Experience
+        </h1>
+        <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          17+ years of software engineering, including 12+ years specializing in machine learning
+          across pharma, NLP, computer vision, BCI, and FinTech.
+        </p>
+      </div>
+      <a
+        href="/Ahmed-Dawod-Resume.pdf"
+        download
+        class="shrink-0 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium text-sm transition-colors flex items-center gap-2"
+      >
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        Download Resume PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- Career timeline -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-10">Career</h2>
+    <div>
+      {roles.map((role, i) => (
+        <TimelineItem
+          title={role.title}
+          company={role.company}
+          location={role.location}
+          period={role.period}
+          current={role.current}
+          bullets={role.bullets}
+          last={i === roles.length - 1}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="bg-slate-50 dark:bg-slate-800/30 py-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-8">Education</h2>
+      <div class="space-y-6">
+        {education.map((edu) => (
+          <div class="rounded-xl border border-slate-200 dark:border-slate-700 p-5 bg-white dark:bg-slate-800/50">
+            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100">{edu.degree}</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+              {edu.institution} · {edu.location}
+            </p>
+            <p class="text-xs font-mono text-slate-400 dark:text-slate-500 mt-0.5">{edu.year}</p>
+            {edu.note && (
+              <p class="mt-2 text-sm text-accent-600 dark:text-accent-400 font-medium">{edu.note}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-6">Awards &amp; Recognitions</h2>
+    <ul class="space-y-3">
+      {awards.map((award) => (
+        <li class="flex items-center gap-3">
+          <span class="text-accent-500 text-lg shrink-0">★</span>
+          <span class="text-slate-700 dark:text-slate-300 font-medium">{award.title}</span>
+          {award.year && <span class="text-sm text-slate-400 dark:text-slate-500 font-mono">{award.year}</span>}
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

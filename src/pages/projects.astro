@@ -1,0 +1,49 @@
+---
+import Base from '@/layouts/Base.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { projects } from '@/data/projects';
+
+const featured = projects.filter((p) => p.featured);
+const rest = projects.filter((p) => !p.featured);
+---
+
+<Base
+  title="Projects — Ahmed Dawod"
+  description="ML and AI projects: drug discovery AI, NLG content generation, BCI systems, credit scoring, computer vision, and more."
+>
+  <!-- Page hero -->
+  <section class="bg-gradient-to-br from-slate-50 to-accent-50/30 dark:from-slate-900 dark:to-slate-900 pt-20 pb-16 px-4 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-mono text-accent-600 dark:text-accent-400 text-sm mb-3">Portfolio</p>
+      <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white mb-5">
+        Projects
+      </h1>
+      <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        A selection of ML systems and research projects across pharmaceutical AI, NLP/NLG,
+        computer vision, BCI, and FinTech.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-6">Featured</h2>
+    <div class="grid sm:grid-cols-2 gap-5">
+      {featured.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+
+  <!-- All other projects -->
+  <section class="bg-slate-50 dark:bg-slate-800/30 py-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-6">More projects</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {rest.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,91 @@
+---
+import Base from '@/layouts/Base.astro';
+import TalkCard from '@/components/TalkCard.astro';
+import { talks } from '@/data/talks';
+import { publications } from '@/data/publications';
+---
+
+<Base
+  title="Speaking & Publications — Ahmed Dawod"
+  description="Speaking engagements and published work by Ahmed Dawod: xTelliGent 2025, Tesseract Academy 2022, Frontiers in Oncology, and more."
+>
+  <!-- Page hero -->
+  <section class="bg-gradient-to-br from-slate-50 to-accent-50/30 dark:from-slate-900 dark:to-slate-900 pt-20 pb-16 px-4 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-mono text-accent-600 dark:text-accent-400 text-sm mb-3">Talks & Research</p>
+      <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white mb-5">
+        Speaking &amp; Publications
+      </h1>
+      <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        Conference talks, academic publications, and technical articles on machine learning,
+        LLMs, and biomedical AI.
+      </p>
+    </div>
+  </section>
+
+  <!-- Talks -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-8">Speaking Engagements</h2>
+    <div class="space-y-5">
+      {talks.map((talk) => (
+        <TalkCard {...talk} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="bg-slate-50 dark:bg-slate-800/30 py-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-8">Publications &amp; Articles</h2>
+      <div class="space-y-4">
+        {publications.map((pub) => (
+          <div class="rounded-xl border border-slate-200 dark:border-slate-700 p-5 bg-white dark:bg-slate-800/50 flex items-start gap-4">
+            <div class="shrink-0 mt-0.5">
+              {pub.type === 'paper'
+                ? <span class="text-xl">📄</span>
+                : <span class="text-xl">📝</span>
+              }
+            </div>
+            <div>
+              {pub.link ? (
+                <a
+                  href={pub.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-semibold text-slate-900 dark:text-slate-100 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                >
+                  {pub.title} ↗
+                </a>
+              ) : (
+                <p class="text-sm font-semibold text-slate-900 dark:text-slate-100">{pub.title}</p>
+              )}
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                {pub.venue}{pub.year ? ` · ${pub.year}` : ''}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GLG + CTA -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <div class="rounded-2xl border border-accent-200 dark:border-accent-800 bg-accent-50 dark:bg-accent-950/30 p-8">
+      <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+        Available for expert consultations via GLG
+      </h3>
+      <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        As a member of the <strong class="font-medium text-slate-800 dark:text-slate-200">GLG Research Expert Network</strong>,
+        I'm available for expert consultations on machine learning, LLMs, and AI in regulated industries.
+        GLG members can book directly through the platform; for direct inquiries, use the contact form.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block mt-5 text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline"
+      >
+        Get in touch →
+      </a>
+    </div>
+  </section>
+</Base>

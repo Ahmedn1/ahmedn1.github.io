@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(rtk npm *)",
+      "Bash(rtk curl *)",
+      "Bash(kill %1)",
+      "Bash(rtk ls *)"
+    ]
+  }
+}

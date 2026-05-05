@@ -1,0 +1,37 @@
+---
+const year = new Date().getFullYear();
+
+const socials = [
+  { label: 'LinkedIn',     href: 'https://www.linkedin.com/in/ahmedn1/' },
+  { label: 'GitHub',       href: 'https://github.com/Ahmedn1' },
+  { label: 'ResearchGate', href: 'https://www.researchgate.net/profile/Ahmed_Dawod' },
+];
+---
+
+<footer class="border-t border-slate-200 dark:border-slate-800 mt-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-500 dark:text-slate-400">
+      © {year} Ahmed Dawod · Montreal, Canada
+    </p>
+
+    <div class="flex items-center gap-4">
+      {socials.map(({ label, href }) => (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-slate-500 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+
+    <a
+      href="mailto:a.dawod.1989@gmail.com"
+      class="text-sm text-slate-500 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+    >
+      a.dawod.1989@gmail.com
+    </a>
+  </div>
+</footer>

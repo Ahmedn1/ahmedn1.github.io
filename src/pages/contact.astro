@@ -1,0 +1,275 @@
+---
+import Base from '@/layouts/Base.astro';
+
+// Paste your full Formspree endpoint URL here (from formspree.io → your form → endpoint)
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzlrgdg';
+---
+
+<Base
+  title="Contact — Ahmed Dawod"
+  description="Get in touch with Ahmed Dawod for ML consulting, data science engagements, or expert calls via the GLG Research Expert Network."
+>
+  <!-- Page hero -->
+  <section class="bg-gradient-to-br from-slate-50 to-accent-50/30 dark:from-slate-900 dark:to-slate-900 pt-20 pb-16 px-4 sm:px-6 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-mono text-accent-600 dark:text-accent-400 text-sm mb-3">Get in touch</p>
+      <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white mb-5">
+        Contact
+      </h1>
+      <p class="max-w-xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        Whether you have a project in mind, want an expert consultation, or just want to connect —
+        send me a message and I'll get back to you within 24 hours.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid md:grid-cols-5 gap-12">
+
+      <!-- Form -->
+      <div class="md:col-span-3">
+        <form
+          id="contact-form"
+          action={FORMSPREE_ENDPOINT}
+          method="POST"
+          class="space-y-5"
+          novalidate
+        >
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                Name <span class="text-accent-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                placeholder="Jane Smith"
+                class="field w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3.5 py-2.5 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition"
+              />
+              <p id="name-error" class="hidden mt-1.5 text-xs text-red-600 dark:text-red-400"></p>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                Email <span class="text-accent-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="jane@company.com"
+                class="field w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3.5 py-2.5 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition"
+              />
+              <p id="email-error" class="hidden mt-1.5 text-xs text-red-600 dark:text-red-400"></p>
+            </div>
+          </div>
+
+          <div>
+            <label for="inquiry" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              Type of inquiry <span class="text-accent-500">*</span>
+            </label>
+            <select
+              id="inquiry"
+              name="inquiry"
+              required
+              class="field w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition"
+            >
+              <option value="" disabled selected>Select one…</option>
+              <option value="Advisory Call">Advisory call</option>
+              <option value="Fixed-Scope Project">Fixed-scope project</option>
+              <option value="Other">Other / just connecting</option>
+            </select>
+            <p id="inquiry-error" class="hidden mt-1.5 text-xs text-red-600 dark:text-red-400"></p>
+          </div>
+
+          <div>
+            <label for="company" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              Company / Organization
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autocomplete="organization"
+              placeholder="Acme Corp (optional)"
+              class="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3.5 py-2.5 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+              Message <span class="text-accent-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Briefly describe what you're working on and how I can help…"
+              class="field w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3.5 py-2.5 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition resize-y"
+            ></textarea>
+            <p id="message-error" class="hidden mt-1.5 text-xs text-red-600 dark:text-red-400"></p>
+          </div>
+
+          <!-- Success / server error feedback -->
+          <div id="form-status" class="hidden rounded-lg px-4 py-3 text-sm font-medium"></div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-accent-600 hover:bg-accent-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors shadow-sm"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+
+      <!-- Sidebar info -->
+      <div class="md:col-span-2 space-y-8">
+        <div>
+          <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wide mb-3">
+            <a href="https://glg.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+              GLG Expert Network ↗
+            </a>
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            GLG members can book me directly through the platform for expert consultations on ML,
+            LLMs, recommender systems, and AI in regulated industries.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-sm font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wide mb-3">Connect</h2>
+          <ul class="space-y-2">
+            <li>
+              <a href="https://www.linkedin.com/in/ahmedn1/" target="_blank" rel="noopener noreferrer"
+                class="text-sm text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                LinkedIn ↗
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Ahmedn1" target="_blank" rel="noopener noreferrer"
+                class="text-sm text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                GitHub ↗
+              </a>
+            </li>
+            <li>
+              <a href="https://www.researchgate.net/profile/Ahmed_Dawod" target="_blank" rel="noopener noreferrer"
+                class="text-sm text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                ResearchGate ↗
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const statusEl = document.getElementById('form-status') as HTMLDivElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  const errorClasses = 'border-red-400 dark:border-red-500 focus:ring-red-400';
+  const normalClasses = 'border-slate-300 dark:border-slate-600 focus:ring-accent-500';
+
+  const rules: Record<string, (el: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => string> = {
+    name:    (el) => el.value.trim() === '' ? 'Please enter your name.' : '',
+    email:   (el) => {
+      if (el.value.trim() === '') return 'Please enter your email address.';
+      if (!(el as HTMLInputElement).validity.valid) return 'Please enter a valid email address (e.g. jane@company.com).';
+      return '';
+    },
+    inquiry: (el) => el.value === '' ? 'Please select a type of inquiry.' : '',
+    message: (el) => el.value.trim() === '' ? 'Please write a message.' : '',
+  };
+
+  function showError(fieldId: string, message: string) {
+    const field = document.getElementById(fieldId) as HTMLElement;
+    const errorEl = document.getElementById(`${fieldId}-error`) as HTMLParagraphElement;
+    if (!field || !errorEl) return;
+    field.classList.remove(...normalClasses.split(' '));
+    field.classList.add(...errorClasses.split(' '));
+    errorEl.textContent = message;
+    errorEl.classList.remove('hidden');
+  }
+
+  function clearError(fieldId: string) {
+    const field = document.getElementById(fieldId) as HTMLElement;
+    const errorEl = document.getElementById(`${fieldId}-error`) as HTMLParagraphElement;
+    if (!field || !errorEl) return;
+    field.classList.remove(...errorClasses.split(' '));
+    field.classList.add(...normalClasses.split(' '));
+    errorEl.textContent = '';
+    errorEl.classList.add('hidden');
+  }
+
+  // Clear error as user fixes the field
+  Object.keys(rules).forEach((id) => {
+    document.getElementById(id)?.addEventListener('input', () => clearError(id));
+    document.getElementById(id)?.addEventListener('change', () => clearError(id));
+  });
+
+  function validateAll(): boolean {
+    let valid = true;
+    for (const [id, validate] of Object.entries(rules)) {
+      const el = document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+      if (!el) continue;
+      const msg = validate(el);
+      if (msg) {
+        showError(id, msg);
+        valid = false;
+      } else {
+        clearError(id);
+      }
+    }
+    return valid;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Client-side validation first
+    if (!validateAll()) {
+      // Scroll to first error
+      form.querySelector('[id$="-error"]:not(.hidden)')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.className = 'hidden rounded-lg px-4 py-3 text-sm font-medium';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        statusEl.textContent = '✓ Message sent! I\'ll get back to you within 24 hours.';
+        statusEl.className = 'rounded-lg px-4 py-3 text-sm font-medium bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800';
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const serverMsg = data?.errors?.map((e: { message: string }) => e.message).join(' ');
+        throw new Error(serverMsg || 'server');
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : '';
+      statusEl.textContent = msg && msg !== 'server'
+        ? `Submission error: ${msg}`
+        : 'Could not send — please email me directly at a.dawod.1989@gmail.com';
+      statusEl.className = 'rounded-lg px-4 py-3 text-sm font-medium bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send message';
+    }
+  });
+</script>
