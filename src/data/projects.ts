@@ -11,6 +11,36 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'roomsplat — 3D Room Tours from Phone Video',
+    domain: '3D Vision / Gaussian Splatting',
+    domainColor: 'sky',
+    description:
+      'Turns a phone walkthrough video into a navigable 3D room tour using Gaussian Splatting — fully local, no cloud or subscription. Record a room, run one command, explore the scene in any browser.',
+    highlights: [
+      'End-to-end local 3D Gaussian Splatting pipeline (35–100 min on a mid-range GPU)',
+      'COLMAP for camera poses, with MASt3R fallback for texture-poor walls',
+      'WebGL2 browser viewer with WASD navigation and spherical-harmonics rendering',
+      'Compact ~10–60 MB .splat exports',
+    ],
+    link: 'https://github.com/Ahmedn1/roomsplat',
+    featured: true,
+  },
+  {
+    title: 'videosplat — 4D Free-Viewpoint Video',
+    domain: '4D Vision / Gaussian Splatting',
+    domainColor: 'indigo',
+    description:
+      'Free-viewpoint replay of dynamic scenes from multi-camera video via 4D Gaussian Splatting. Auto-calibrates cameras, trains a 4D model, and generates an interactive web viewer to scrub through time and fly through the scene.',
+    highlights: [
+      'Four 4D reconstruction backends: 4DGaussians, SpacetimeGaussians, Gaussian-Flow, 4D-Rotor-Gaussians',
+      'COLMAP/MASt3R calibration supporting casual, unsynced, mixed-resolution capture',
+      'Person masking via confidence down-weighting for moving subjects',
+      'VRAM-aware design tuned for 16GB GPUs',
+    ],
+    link: 'https://github.com/Ahmedn1/videosplat',
+    featured: true,
+  },
+  {
     title: 'AI Assistant for Drug Discovery',
     domain: 'Pharma / LLMs',
     domainColor: 'teal',
