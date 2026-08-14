@@ -41,6 +41,21 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: 'scientific-figure-svg — Captions to Editable Diagrams',
+    domain: 'LLMs / Diagram Synthesis',
+    domainColor: 'violet',
+    description:
+      'Turns a scientific-figure caption into an editable SVG diagram. An LLM decides what the figure should contain as a structured JSON plan; the geometry is then rendered deterministically — so matrices, Petri nets, circuit schematics, and packing diagrams come out as real figure types instead of empty boxes.',
+    highlights: [
+      'Plan-then-render: Qwen2.5-14B emits a JSON plan, deterministic renderers draw the geometry',
+      'QLoRA fine-tune of Qwen2.5-Coder-7B for box-and-arrow figures, plus deterministic orthogonal arrows',
+      'Type-specific renderers: heatmap/diagonal matrices, proportional treemaps, Petri nets, circuit schematics with feedback',
+      'arXiv-context retrieval with LaTeX-math → Unicode, and a graph-based structural evaluation',
+    ],
+    link: 'https://github.com/Ahmedn1/scientific-figure-svg',
+    featured: true,
+  },
+  {
     title: 'AI Assistant for Drug Discovery',
     domain: 'Pharma / LLMs',
     domainColor: 'teal',
