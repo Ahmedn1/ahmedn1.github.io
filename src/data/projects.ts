@@ -11,6 +11,21 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'wsplab — Weight-Space Programming',
+    domain: 'LLMs / Interpretability',
+    domainColor: 'purple',
+    description:
+      'A framework implementing MIT\'s new paper, Sparks of Weight-Space Programming (Takehi, Teoh, Zhang & Khattab), in which an LLM reads a neural network\'s weights and edits them directly — no gradient descent, no training. wsplab runs the whole job end to end: baseline, a sandboxed editing session on a forward-pass budget, held-out evaluation, an honest verdict, and the edit packaged as a small patch anyone can apply to the public base model.',
+    highlights: [
+      'Works on any PyTorch network: language models, game policies, CNNs, diffusion models',
+      'Verdicts from hidden evals, paired statistics, and a same-size random-edit control — no_fix_found is a normal outcome',
+      'Bit-exact, stackable patches shareable on the Hugging Face Hub; reproduces the paper\'s released patches and session prompts byte for byte',
+      'Published findings across 11 experiments: lifted a Seaquest policy from 52 → 70–76 by changing ~30 of 20k weights',
+    ],
+    link: 'https://github.com/Ahmedn1/wsplab',
+    featured: true,
+  },
+  {
     title: 'roomsplat — 3D Room Tours from Phone Video',
     domain: '3D Vision / Gaussian Splatting',
     domainColor: 'sky',
@@ -53,21 +68,6 @@ export const projects: Project[] = [
       'arXiv-context retrieval with LaTeX-math → Unicode, and a graph-based structural evaluation',
     ],
     link: 'https://github.com/Ahmedn1/scientific-figure-svg',
-    featured: true,
-  },
-  {
-    title: 'wsplab — Weight-Space Programming',
-    domain: 'LLMs / Interpretability',
-    domainColor: 'purple',
-    description:
-      'A framework implementing MIT\'s new paper, Sparks of Weight-Space Programming (Takehi, Teoh, Zhang & Khattab), in which an LLM reads a neural network\'s weights and edits them directly — no gradient descent, no training. wsplab runs the whole job end to end: baseline, a sandboxed editing session on a forward-pass budget, held-out evaluation, an honest verdict, and the edit packaged as a small patch anyone can apply to the public base model.',
-    highlights: [
-      'Works on any PyTorch network: language models, game policies, CNNs, diffusion models',
-      'Verdicts from hidden evals, paired statistics, and a same-size random-edit control — no_fix_found is a normal outcome',
-      'Bit-exact, stackable patches shareable on the Hugging Face Hub; reproduces the paper\'s released patches and session prompts byte for byte',
-      'Published findings across 11 experiments: lifted a Seaquest policy from 52 → 70–76 by changing ~30 of 20k weights',
-    ],
-    link: 'https://github.com/Ahmedn1/wsplab',
     featured: true,
   },
   {
